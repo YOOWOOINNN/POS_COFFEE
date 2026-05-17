@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes menu-item {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(110 231 183 / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgb(110 231 183 / 0);
+  }
+}
+
+html {
+  background: #f6f0e8;
+}
+
+body {
+  min-width: 320px;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.motion-slide-down {
+  animation: slide-down 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.motion-slide-up {
+  animation: slide-up 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.motion-menu-item {
+  animation: menu-item 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.motion-pulse-dot {
+  animation: pulse-dot 1.7s ease-out infinite;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .receipt-print,
+  .receipt-print * {
+    visibility: visible;
+  }
+
+  .receipt-print {
+    position: absolute;
+    inset: 0;
+    max-height: none;
+    width: 100%;
+    max-width: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
